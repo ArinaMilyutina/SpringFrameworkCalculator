@@ -16,6 +16,8 @@ import java.util.Optional;
 public class HibernateUserDao implements UserDAO {
     @Autowired
     private SessionFactory sessionFactory;
+    private static final String FIND_BY_USERNAME ="from User where username = :username";
+    private static final String USERNAME="username";
 
     @Transactional
     @Override
@@ -38,8 +40,8 @@ public class HibernateUserDao implements UserDAO {
     @Override
     public Optional<User> findByUsername(String username) {
         Session currentSession = sessionFactory.getCurrentSession();
-        Query<User> query = currentSession.createQuery("from User where username = :username", User.class);
-        query.setParameter("username", username);
+        Query<User> query = currentSession.createQuery(FIND_BY_USERNAME, User.class);
+        query.setParameter(USERNAME, username);
         User singleResult = query.getSingleResult();
         return Optional.of(singleResult);
     }

@@ -19,6 +19,12 @@ import java.util.Properties;
 @EnableWebMvc
 @EnableTransactionManagement
 public class GeneralConfiguration {
+    private static final String URL = "jdbc:postgresql://localhost:5432/postgres";
+    private static final String USER = "postgres";
+    private static final String PASSWORD = "arinemiller22";
+    private static final String DRIVER = "org.postgresql.Driver";
+    private static final String PACKAGE = "by.tms";
+
 
     @Bean
     public ViewResolver viewResolver() {
@@ -31,10 +37,10 @@ public class GeneralConfiguration {
     @Bean
     public DataSource dataSource() {
         BasicDataSource basicDataSource = new BasicDataSource();
-        basicDataSource.setUrl("jdbc:postgresql://localhost:5432/postgres");
-        basicDataSource.setUsername("postgres");
-        basicDataSource.setPassword("arinemiller22");
-        basicDataSource.setDriverClassName("org.postgresql.Driver");
+        basicDataSource.setUrl(URL);
+        basicDataSource.setUsername(USER);
+        basicDataSource.setPassword(PASSWORD);
+        basicDataSource.setDriverClassName(DRIVER);
         return basicDataSource;
     }
 
@@ -42,7 +48,7 @@ public class GeneralConfiguration {
     public LocalSessionFactoryBean factoryBean() {
         LocalSessionFactoryBean localSessionFactoryBean = new LocalSessionFactoryBean();
         localSessionFactoryBean.setDataSource(dataSource());
-        localSessionFactoryBean.setPackagesToScan("by.tms");
+        localSessionFactoryBean.setPackagesToScan(PACKAGE);
         localSessionFactoryBean.setHibernateProperties(hibernateProperties());
         return localSessionFactoryBean;
     }

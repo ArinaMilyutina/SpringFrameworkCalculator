@@ -12,6 +12,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @Controller
 @RequestMapping("/calc")
 public class CalculatorController {
+    private static final String RESULT = "result";
+    private static final String MESSAGE = "message";
     @Autowired
     private OperationService operationService;
 
@@ -23,13 +25,13 @@ public class CalculatorController {
     @PostMapping
     public String calc(Operation operations, Model model) {
         Operation result = operationService.calculate(operations);
-        model.addAttribute("result", result);
+        model.addAttribute(RESULT, result);
         return "calc";
     }
 
     @ExceptionHandler(RuntimeException.class)
     public String error(RuntimeException exception, Model model) {
-        model.addAttribute("message", exception.getMessage());
+        model.addAttribute(MESSAGE, exception.getMessage());
         return "error";
 
     }
