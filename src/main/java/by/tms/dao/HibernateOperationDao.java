@@ -1,5 +1,6 @@
-package by.tms;
+package by.tms.dao;
 
+import by.tms.entity.Operation;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;

@@ -1,4 +1,4 @@
-package by.tms;
+package by.tms.dao;
 
 import org.apache.tomcat.dbcp.dbcp2.BasicDataSource;
 import org.springframework.context.annotation.Bean;
