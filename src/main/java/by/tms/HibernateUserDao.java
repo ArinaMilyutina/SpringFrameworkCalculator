@@ -4,7 +4,7 @@ import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.query.Query;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Controller;
+//import org.springframework.stereotype.Controller;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -13,11 +13,12 @@ import java.util.Optional;
 
 //import java.util.List;
 @Service
-public class HibernateUserDao {
+public class HibernateUserDao implements UserDAO {
     @Autowired
     private SessionFactory sessionFactory;
 
     @Transactional
+    @Override
     public void save(User user) {
         Session currentSession = sessionFactory.getCurrentSession();
         currentSession.save(user);
@@ -34,6 +35,7 @@ public class HibernateUserDao {
 //        return fromUser;
 //    }
 //
+    @Override
     public Optional<User> findByUsername(String username) {
         Session currentSession = sessionFactory.getCurrentSession();
         Query<User> query = currentSession.createQuery("from User where username = :username", User.class);
