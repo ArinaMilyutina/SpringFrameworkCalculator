@@ -2,11 +2,11 @@ package by.tms;
 
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
-import org.hibernate.query.Query;
+//import org.hibernate.query.Query;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.transaction.annotation.Transactional;
 
-import java.util.List;
+//import java.util.List;
 
 public class HibernateUserDao {
     @Autowired
