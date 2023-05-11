@@ -1,8 +1,5 @@
-package by.tms;
+package by.tms.service;
 
-import org.springframework.stereotype.Controller;
-
-@Controller
 public class Calculator {
     double sum(double a, double b) {
         return a + b;
