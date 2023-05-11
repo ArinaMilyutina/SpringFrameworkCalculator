@@ -1,4 +1,4 @@
-package by.tms;
+package by.tms.web;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
