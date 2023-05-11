@@ -27,5 +27,11 @@ public class CalculatorController {
         return "calc";
     }
 
+    @ExceptionHandler(RuntimeException.class)
+    public String error(RuntimeException exception, Model model) {
+        model.addAttribute("message", exception.getMessage());
+        return "error";
+
+    }
 
 }
