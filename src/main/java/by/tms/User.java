@@ -15,7 +15,7 @@ import javax.persistence.Table;
 @NoArgsConstructor
 public class User {
     private String name;
-    private String userName;
+    private String username;
     private String password;
     private long id;
 
